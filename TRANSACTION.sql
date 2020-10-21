@@ -1,0 +1,19 @@
+BEGIN
+	--수정작업
+	UPDATE MEMBER SET NAME='가길동' WHERE ID = 'KIM1';
+	--삭제 작업
+	DELETE MEMBER WHERE ID ='KIM2';
+	--입력작업: 에러 발생
+	INSERT INTO MEMBER(ID,NAME) VALUES( 'KIM4', '가길동4');
+	
+	COMMIT;
+
+	DBMS_OUTPUT.PUT_LINE('일련의 작업(트랜잭션)이 성공 했어요');
+	
+	EXCEPTION
+	WHEN OTHERS THEN
+		ROLLBACK;	
+		DBMS_OUTPUT.PUT_LINE('모든 작업이 취소 되었어요 :' || SQLERRM);
+	
+END;
+/

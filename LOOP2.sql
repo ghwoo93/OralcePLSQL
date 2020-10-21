@@ -1,0 +1,21 @@
+ACCEPT SNUM PROMPT '시작값 입력?'
+ACCEPT ENUM PROMPT '끝값 입력?'
+
+DECLARE
+	HAP NUMBER ;
+	START_NUM NUMBER := &SNUM;
+	
+BEGIN	
+	IF (&SNUM >= &ENUM) THEN
+		DBMS_OUTPUT.PUT_LINE('시작값이 종료값보다 크거나 같아요');
+	ELSE
+		HAP := 0;
+		LOOP
+			HAP := HAP + START_NUM;
+			START_NUM := START_NUM +1;
+			EXIT WHEN START_NUM > &ENUM ;
+		END LOOP;
+		DBMS_OUTPUT.PUT_LINE(&SNUM || '부터' || &ENUM || '까지의 합 : '|| HAP);
+	END IF;
+END;
+/

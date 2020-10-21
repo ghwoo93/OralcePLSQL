@@ -1,0 +1,6 @@
+BEGIN
+	FOR K IN REVERSE 1 .. 10 LOOP
+		DBMS_OUTPUT.PUT_LINE( 'K = ' ||  K );
+	END LOOP;
+END;
+/

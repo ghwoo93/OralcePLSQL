@@ -1,0 +1,11 @@
+DECLARE
+	HAP NUMBER := 0;
+	K NUMBER := 1;
+BEGIN
+	WHILE K<=10 LOOP
+		HAP := HAP + K ;
+		K := K + 1 ;
+	END LOOP;
+	DBMS_OUTPUT.PUT_LINE( '1부터 10까지 누적합 : '|| HAP);
+END;
+/
